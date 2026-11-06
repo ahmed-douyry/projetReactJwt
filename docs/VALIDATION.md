@@ -61,7 +61,7 @@ Les tests utilisent H2 en mémoire et ne modifient pas la base locale de démons
 
 ## Limites explicites
 
-Les captures de l’interface de Postman elle-même ne sont pas fournies : les preuves livrées viennent de l’exécution de la collection avec Newman. Pour satisfaire littéralement ce livrable, importer la collection dans Postman, lancer le Runner et capturer les neuf résultats indiqués ci-dessus. La démonstration orale et les informations personnelles de la couverture du rapport restent à compléter par l’étudiant.
+Les captures de l’interface de Postman elle-même ne sont pas fournies : les preuves livrées viennent de l’exécution de la collection avec Newman. Pour satisfaire littéralement ce livrable, importer la collection dans Postman, lancer le Runner et capturer les neuf résultats indiqués ci-dessus. La démonstration orale reste à réaliser par l’étudiant. La couverture du rapport indique Ahmed Douyry comme auteur et ENSET Mohammedia comme établissement.
 
 L’expiration de cinq minutes a été vérifiée par ses mécanismes backend et frontend ; le navigateur a utilisé une échéance locale raccourcie, sans attendre cinq minutes réelles. La vérification des codes 401 du JWT expiré a bien utilisé une signature valide. H2 a été vérifiée ; MySQL et un déploiement public ne font pas partie des vérifications réalisées. Les polices Google Fonts ont des polices de repli si le réseau est absent.
 
