@@ -1,0 +1,1959 @@
+{
+  "source": "Exécution réelle de la collection Postman par Newman",
+  "stats": {
+    "iterations": {
+      "total": 1,
+      "pending": 0,
+      "failed": 0
+    },
+    "items": {
+      "total": 36,
+      "pending": 0,
+      "failed": 0
+    },
+    "scripts": {
+      "total": 38,
+      "pending": 0,
+      "failed": 0
+    },
+    "prerequests": {
+      "total": 36,
+      "pending": 0,
+      "failed": 0
+    },
+    "requests": {
+      "total": 36,
+      "pending": 0,
+      "failed": 0
+    },
+    "tests": {
+      "total": 36,
+      "pending": 0,
+      "failed": 0
+    },
+    "assertions": {
+      "total": 40,
+      "pending": 0,
+      "failed": 0
+    },
+    "testScripts": {
+      "total": 36,
+      "pending": 0,
+      "failed": 0
+    },
+    "prerequestScripts": {
+      "total": 2,
+      "pending": 0,
+      "failed": 0
+    }
+  },
+  "failures": 0,
+  "executions": [
+    {
+      "name": "Connexion admin",
+      "method": "POST",
+      "url": "auth/login",
+      "status": 200,
+      "response": {
+        "token": "[masqué]",
+        "refreshToken": "[masqué]",
+        "expiresAt": "2026-11-04T17:40:12.994183046Z",
+        "role": "ADMIN",
+        "fullName": "Sara El Amrani",
+        "user": {
+          "id": 1,
+          "fullName": "Sara El Amrani",
+          "email": "admin@sentinel.ma",
+          "role": "ADMIN",
+          "enabled": true,
+          "createdAt": "2026-11-04T16:49:14.308519Z"
+        }
+      },
+      "assertions": [
+        {
+          "name": "HTTP 200",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "Connexion tech",
+      "method": "POST",
+      "url": "auth/login",
+      "status": 200,
+      "response": {
+        "token": "[masqué]",
+        "refreshToken": "[masqué]",
+        "expiresAt": "2026-11-04T17:40:13.436144180Z",
+        "role": "TECHNICIAN",
+        "fullName": "Yassine Bennani",
+        "user": {
+          "id": 2,
+          "fullName": "Yassine Bennani",
+          "email": "technicien@sentinel.ma",
+          "role": "TECHNICIAN",
+          "enabled": true,
+          "createdAt": "2026-11-04T16:49:14.503694Z"
+        }
+      },
+      "assertions": [
+        {
+          "name": "HTTP 200",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "Inscription employé 1 (rôle forcé EMPLOYEE)",
+      "method": "POST",
+      "url": "auth/register",
+      "status": 201,
+      "response": {
+        "token": "[masqué]",
+        "refreshToken": "[masqué]",
+        "expiresAt": "2026-11-04T17:40:13.608447710Z",
+        "role": "EMPLOYEE",
+        "fullName": "Employé test 1",
+        "user": {
+          "id": 7,
+          "fullName": "Employé test 1",
+          "email": "postman1.1793813713468@test.ma",
+          "role": "EMPLOYEE",
+          "enabled": true,
+          "createdAt": "2026-11-04T17:35:13.506508613Z"
+        }
+      },
+      "assertions": [
+        {
+          "name": "HTTP 201",
+          "passed": true
+        },
+        {
+          "name": "Inscription sans élévation de privilège",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "Inscription employé 2 (rôle forcé EMPLOYEE)",
+      "method": "POST",
+      "url": "auth/register",
+      "status": 201,
+      "response": {
+        "token": "[masqué]",
+        "refreshToken": "[masqué]",
+        "expiresAt": "2026-11-04T17:40:13.751545207Z",
+        "role": "EMPLOYEE",
+        "fullName": "Employé test 2",
+        "user": {
+          "id": 8,
+          "fullName": "Employé test 2",
+          "email": "postman2.1793813713637@test.ma",
+          "role": "EMPLOYEE",
+          "enabled": true,
+          "createdAt": "2026-11-04T17:35:13.652676579Z"
+        }
+      },
+      "assertions": [
+        {
+          "name": "HTTP 201",
+          "passed": true
+        },
+        {
+          "name": "Inscription sans élévation de privilège",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "Déclarer incident 1 (employé 1)",
+      "method": "POST",
+      "url": "api/incidents",
+      "status": 201,
+      "response": {
+        "id": 12,
+        "title": "Incident Postman 1",
+        "description": "Incident créé dans le scénario de validation du devoir.",
+        "category": "PHISHING",
+        "priority": "HIGH",
+        "status": "OPEN",
+        "createdAt": "2026-11-04T17:35:13.964000685Z",
+        "updatedAt": "2026-11-04T17:35:13.964050172Z",
+        "createdBy": {
+          "id": 7,
+          "fullName": "Employé test 1",
+          "email": "postman1.1793813713468@test.ma",
+          "role": "EMPLOYEE",
+          "enabled": true,
+          "createdAt": "2026-11-04T17:35:13.506509Z"
+        },
+        "assignedTo": null,
+        "history": [
+          {
+            "id": 32,
+            "message": "Incident créé",
+            "author": {
+              "id": 7,
+              "fullName": "Employé test 1",
+              "email": "postman1.1793813713468@test.ma",
+              "role": "EMPLOYEE",
+              "enabled": true,
+              "createdAt": "2026-11-04T17:35:13.506509Z"
+            },
+            "createdAt": "2026-11-04T17:35:13.964035707Z"
+          }
+        ],
+        "comments": []
+      },
+      "assertions": [
+        {
+          "name": "HTTP 201",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "Déclarer incident 2 (employé 1)",
+      "method": "POST",
+      "url": "api/incidents",
+      "status": 201,
+      "response": {
+        "id": 13,
+        "title": "Incident Postman 2",
+        "description": "Incident créé dans le scénario de validation du devoir.",
+        "category": "PHISHING",
+        "priority": "HIGH",
+        "status": "OPEN",
+        "createdAt": "2026-11-04T17:35:14.064328252Z",
+        "updatedAt": "2026-11-04T17:35:14.064338514Z",
+        "createdBy": {
+          "id": 7,
+          "fullName": "Employé test 1",
+          "email": "postman1.1793813713468@test.ma",
+          "role": "EMPLOYEE",
+          "enabled": true,
+          "createdAt": "2026-11-04T17:35:13.506509Z"
+        },
+        "assignedTo": null,
+        "history": [
+          {
+            "id": 33,
+            "message": "Incident créé",
+            "author": {
+              "id": 7,
+              "fullName": "Employé test 1",
+              "email": "postman1.1793813713468@test.ma",
+              "role": "EMPLOYEE",
+              "enabled": true,
+              "createdAt": "2026-11-04T17:35:13.506509Z"
+            },
+            "createdAt": "2026-11-04T17:35:14.064337159Z"
+          }
+        ],
+        "comments": []
+      },
+      "assertions": [
+        {
+          "name": "HTTP 201",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "Déclarer incident 3 (employé 2)",
+      "method": "POST",
+      "url": "api/incidents",
+      "status": 201,
+      "response": {
+        "id": 14,
+        "title": "Incident Postman 3",
+        "description": "Incident créé dans le scénario de validation du devoir.",
+        "category": "PHISHING",
+        "priority": "HIGH",
+        "status": "OPEN",
+        "createdAt": "2026-11-04T17:35:14.111249875Z",
+        "updatedAt": "2026-11-04T17:35:14.111261286Z",
+        "createdBy": {
+          "id": 8,
+          "fullName": "Employé test 2",
+          "email": "postman2.1793813713637@test.ma",
+          "role": "EMPLOYEE",
+          "enabled": true,
+          "createdAt": "2026-11-04T17:35:13.652677Z"
+        },
+        "assignedTo": null,
+        "history": [
+          {
+            "id": 34,
+            "message": "Incident créé",
+            "author": {
+              "id": 8,
+              "fullName": "Employé test 2",
+              "email": "postman2.1793813713637@test.ma",
+              "role": "EMPLOYEE",
+              "enabled": true,
+              "createdAt": "2026-11-04T17:35:13.652677Z"
+            },
+            "createdAt": "2026-11-04T17:35:14.111259550Z"
+          }
+        ],
+        "comments": []
+      },
+      "assertions": [
+        {
+          "name": "HTTP 201",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "SEC 1 — API sans JWT",
+      "method": "GET",
+      "url": "api/profile",
+      "status": 401,
+      "response": {
+        "status": 401,
+        "message": "Session absente, invalide ou expirée",
+        "errors": {}
+      },
+      "assertions": [
+        {
+          "name": "HTTP 401",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "SEC 2 — JWT invalide",
+      "method": "GET",
+      "url": "api/profile",
+      "status": 401,
+      "response": {
+        "status": 401,
+        "message": "Session absente, invalide ou expirée",
+        "errors": {}
+      },
+      "assertions": [
+        {
+          "name": "HTTP 401",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "SEC 3 — JWT signé mais expiré",
+      "method": "GET",
+      "url": "api/profile",
+      "status": 401,
+      "response": {
+        "status": 401,
+        "message": "Session absente, invalide ou expirée",
+        "errors": {}
+      },
+      "assertions": [
+        {
+          "name": "HTTP 401",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "SEC 4 — Employé sur route ADMIN",
+      "method": "GET",
+      "url": "api/admin/users",
+      "status": 403,
+      "response": {
+        "status": 403,
+        "message": "Accès interdit",
+        "errors": {}
+      },
+      "assertions": [
+        {
+          "name": "HTTP 403",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "SEC 5 — Lecture incident autre propriétaire",
+      "method": "GET",
+      "url": "api/incidents/14",
+      "status": 403,
+      "response": {
+        "status": 403,
+        "message": "Cet incident ne vous est pas accessible",
+        "errors": {}
+      },
+      "assertions": [
+        {
+          "name": "HTTP 403",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "SEC 6 — Technicien sur incident non affecté",
+      "method": "PUT",
+      "url": "api/incidents/14/status",
+      "status": 403,
+      "response": {
+        "status": 403,
+        "message": "Cet incident ne vous est pas accessible",
+        "errors": {}
+      },
+      "assertions": [
+        {
+          "name": "HTTP 403",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "SEC 8 — Email déjà existant",
+      "method": "POST",
+      "url": "auth/register",
+      "status": 409,
+      "response": {
+        "status": 409,
+        "message": "Cet email est déjà utilisé",
+        "errors": {}
+      },
+      "assertions": [
+        {
+          "name": "HTTP 409",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "SEC 9 — Incident invalide",
+      "method": "POST",
+      "url": "api/incidents",
+      "status": 400,
+      "response": {
+        "status": 400,
+        "message": "Données invalides",
+        "errors": {
+          "description": "must not be blank",
+          "priority": "must not be null",
+          "title": "must not be blank",
+          "category": "must not be null"
+        }
+      },
+      "assertions": [
+        {
+          "name": "HTTP 400",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "Admin — Tous les incidents",
+      "method": "GET",
+      "url": "api/incidents",
+      "status": 200,
+      "response": [
+        {
+          "id": 14,
+          "title": "Incident Postman 3",
+          "description": "Incident créé dans le scénario de validation du devoir.",
+          "category": "PHISHING",
+          "priority": "HIGH",
+          "status": "OPEN",
+          "createdAt": "2026-11-04T17:35:14.111250Z",
+          "updatedAt": "2026-11-04T17:35:14.111261Z",
+          "createdBy": {
+            "id": 8,
+            "fullName": "Employé test 2",
+            "email": "postman2.1793813713637@test.ma",
+            "role": "EMPLOYEE",
+            "enabled": true,
+            "createdAt": "2026-11-04T17:35:13.652677Z"
+          },
+          "assignedTo": null,
+          "history": [],
+          "comments": []
+        },
+        {
+          "id": 13,
+          "title": "Incident Postman 2",
+          "description": "Incident créé dans le scénario de validation du devoir.",
+          "category": "PHISHING",
+          "priority": "HIGH",
+          "status": "OPEN",
+          "createdAt": "2026-11-04T17:35:14.064328Z",
+          "updatedAt": "2026-11-04T17:35:14.064339Z",
+          "createdBy": {
+            "id": 7,
+            "fullName": "Employé test 1",
+            "email": "postman1.1793813713468@test.ma",
+            "role": "EMPLOYEE",
+            "enabled": true,
+            "createdAt": "2026-11-04T17:35:13.506509Z"
+          },
+          "assignedTo": null,
+          "history": [],
+          "comments": []
+        },
+        {
+          "id": 12,
+          "title": "Incident Postman 1",
+          "description": "Incident créé dans le scénario de validation du devoir.",
+          "category": "PHISHING",
+          "priority": "HIGH",
+          "status": "OPEN",
+          "createdAt": "2026-11-04T17:35:13.964001Z",
+          "updatedAt": "2026-11-04T17:35:13.964050Z",
+          "createdBy": {
+            "id": 7,
+            "fullName": "Employé test 1",
+            "email": "postman1.1793813713468@test.ma",
+            "role": "EMPLOYEE",
+            "enabled": true,
+            "createdAt": "2026-11-04T17:35:13.506509Z"
+          },
+          "assignedTo": null,
+          "history": [],
+          "comments": []
+        },
+        {
+          "id": 11,
+          "title": "Connexion VPN indisponible — validation navigateur",
+          "description": "Le VPN ne répond plus depuis ce matin. La connexion Internet fonctionne sur les autres services.",
+          "category": "NETWORK",
+          "priority": "HIGH",
+          "status": "RESOLVED",
+          "createdAt": "2026-11-04T17:10:36.590637Z",
+          "updatedAt": "2026-11-04T17:12:15.486779Z",
+          "createdBy": {
+            "id": 3,
+            "fullName": "Ahmed Benali",
+            "email": "employe@sentinel.ma",
+            "role": "EMPLOYEE",
+            "enabled": true,
+            "createdAt": "2026-11-04T16:49:14.608673Z"
+          },
+          "assignedTo": {
+            "id": 2,
+            "fullName": "Yassine Bennani",
+            "email": "technicien@sentinel.ma",
+            "role": "TECHNICIAN",
+            "enabled": true,
+            "createdAt": "2026-11-04T16:49:14.503694Z"
+          },
+          "history": [],
+          "comments": []
+        },
+        {
+          "id": 10,
+          "title": "Incident Postman 3",
+          "description": "Incident créé dans le scénario de validation du devoir.",
+          "category": "PHISHING",
+          "priority": "HIGH",
+          "status": "OPEN",
+          "createdAt": "2026-11-04T17:03:59.143095Z",
+          "updatedAt": "2026-11-04T17:03:59.143104Z",
+          "createdBy": {
+            "id": 6,
+            "fullName": "Employé test 2",
+            "email": "postman2.1793811838746@test.ma",
+            "role": "EMPLOYEE",
+            "enabled": true,
+            "createdAt": "2026-11-04T17:03:58.760443Z"
+          },
+          "assignedTo": null,
+          "history": [],
+          "comments": []
+        },
+        {
+          "id": 9,
+          "title": "Incident Postman 2",
+          "description": "Incident créé dans le scénario de validation du devoir.",
+          "category": "PHISHING",
+          "priority": "HIGH",
+          "status": "OPEN",
+          "createdAt": "2026-11-04T17:03:59.106951Z",
+          "updatedAt": "2026-11-04T17:03:59.106959Z",
+          "createdBy": {
+            "id": 5,
+            "fullName": "Employé test 1",
+            "email": "postman1.1793811838558@test.ma",
+            "role": "EMPLOYEE",
+            "enabled": true,
+            "createdAt": "2026-11-04T17:03:58.589611Z"
+          },
+          "assignedTo": null,
+          "history": [],
+          "comments": []
+        },
+        {
+          "id": 8,
+          "title": "Incident Postman 1",
+          "description": "Incident créé dans le scénario de validation du devoir.",
+          "category": "PHISHING",
+          "priority": "HIGH",
+          "status": "CLOSED",
+          "createdAt": "2026-11-04T17:03:59.026534Z",
+          "updatedAt": "2026-11-04T17:03:59.850591Z",
+          "createdBy": {
+            "id": 5,
+            "fullName": "Employé test 1",
+            "email": "postman1.1793811838558@test.ma",
+            "role": "EMPLOYEE",
+            "enabled": true,
+            "createdAt": "2026-11-04T17:03:58.589611Z"
+          },
+          "assignedTo": {
+            "id": 2,
+            "fullName": "Yassine Bennani",
+            "email": "technicien@sentinel.ma",
+            "role": "TECHNICIAN",
+            "enabled": true,
+            "createdAt": "2026-11-04T16:49:14.503694Z"
+          },
+          "history": [],
+          "comments": []
+        },
+        {
+          "id": 7,
+          "title": "Partage de documents confidentiels détecté",
+          "description": "Incident signalé par Salma Idrissi. Partage de documents confidentiels détecté. Merci de vérifier la situation et de prendre les mesures nécessaires.",
+          "category": "DATA_LEAK",
+          "priority": "CRITICAL",
+          "status": "OPEN",
+          "createdAt": "2026-11-04T14:49:14.891900Z",
+          "updatedAt": "2026-11-04T14:49:14.891900Z",
+          "createdBy": {
+            "id": 4,
+            "fullName": "Salma Idrissi",
+            "email": "employe2@sentinel.ma",
+            "role": "EMPLOYEE",
+            "enabled": true,
+            "createdAt": "2026-11-04T16:49:14.715946Z"
+          },
+          "assignedTo": null,
+          "history": [],
+          "comments": []
+        },
+        {
+          "id": 4,
+          "title": "Accès à la messagerie bloqué",
+          "description": "Incident signalé par Ahmed Benali. Accès à la messagerie bloqué. Merci de vérifier la situation et de prendre les mesures nécessaires.",
+          "category": "ACCESS",
+          "priority": "HIGH",
+          "status": "ASSIGNED",
+          "createdAt": "2026-11-04T11:49:14.848378Z",
+          "updatedAt": "2026-11-04T11:59:14.848378Z",
+          "createdBy": {
+            "id": 3,
+            "fullName": "Ahmed Benali",
+            "email": "employe@sentinel.ma",
+            "role": "EMPLOYEE",
+            "enabled": true,
+            "createdAt": "2026-11-04T16:49:14.608673Z"
+          },
+          "assignedTo": {
+            "id": 2,
+            "fullName": "Yassine Bennani",
+            "email": "technicien@sentinel.ma",
+            "role": "TECHNICIAN",
+            "enabled": true,
+            "createdAt": "2026-11-04T16:49:14.503694Z"
+          },
+          "history": [],
+          "comments": []
+        },
+        {
+          "id": 3,
+          "title": "Connexion Wi-Fi instable au deuxième étage",
+          "description": "Incident signalé par Salma Idrissi. Connexion Wi-Fi instable au deuxième étage. Merci de vérifier la situation et de prendre les mesures nécessaires.",
+          "category": "NETWORK",
+          "priority": "MEDIUM",
+          "status": "OPEN",
+          "createdAt": "2026-11-04T08:49:14.845103Z",
+          "updatedAt": "2026-11-04T08:49:14.845103Z",
+          "createdBy": {
+            "id": 4,
+            "fullName": "Salma Idrissi",
+            "email": "employe2@sentinel.ma",
+            "role": "EMPLOYEE",
+            "enabled": true,
+            "createdAt": "2026-11-04T16:49:14.715946Z"
+          },
+          "assignedTo": null,
+          "history": [],
+          "comments": []
+        },
+        {
+          "id": 1,
+          "title": "Email suspect imitant le service RH",
+          "description": "Incident signalé par Ahmed Benali. Email suspect imitant le service RH. Merci de vérifier la situation et de prendre les mesures nécessaires.",
+          "category": "PHISHING",
+          "priority": "HIGH",
+          "status": "OPEN",
+          "createdAt": "2026-11-03T15:49:14.816438Z",
+          "updatedAt": "2026-11-03T15:49:14.816438Z",
+          "createdBy": {
+            "id": 3,
+            "fullName": "Ahmed Benali",
+            "email": "employe@sentinel.ma",
+            "role": "EMPLOYEE",
+            "enabled": true,
+            "createdAt": "2026-11-04T16:49:14.608673Z"
+          },
+          "assignedTo": null,
+          "history": [],
+          "comments": []
+        },
+        {
+          "id": 2,
+          "title": "Poste de travail infecté par un malware",
+          "description": "Incident signalé par Ahmed Benali. Poste de travail infecté par un malware. Merci de vérifier la situation et de prendre les mesures nécessaires.",
+          "category": "MALWARE",
+          "priority": "CRITICAL",
+          "status": "IN_PROGRESS",
+          "createdAt": "2026-11-02T16:49:14.834384Z",
+          "updatedAt": "2026-11-02T17:19:14.834384Z",
+          "createdBy": {
+            "id": 3,
+            "fullName": "Ahmed Benali",
+            "email": "employe@sentinel.ma",
+            "role": "EMPLOYEE",
+            "enabled": true,
+            "createdAt": "2026-11-04T16:49:14.608673Z"
+          },
+          "assignedTo": {
+            "id": 2,
+            "fullName": "Yassine Bennani",
+            "email": "technicien@sentinel.ma",
+            "role": "TECHNICIAN",
+            "enabled": true,
+            "createdAt": "2026-11-04T16:49:14.503694Z"
+          },
+          "history": [],
+          "comments": []
+        },
+        {
+          "id": 5,
+          "title": "Mise à jour du logiciel de comptabilité",
+          "description": "Incident signalé par Salma Idrissi. Mise à jour du logiciel de comptabilité. Merci de vérifier la situation et de prendre les mesures nécessaires.",
+          "category": "SOFTWARE",
+          "priority": "LOW",
+          "status": "RESOLVED",
+          "createdAt": "2026-11-01T16:49:14.853832Z",
+          "updatedAt": "2026-11-01T17:29:14.853832Z",
+          "createdBy": {
+            "id": 4,
+            "fullName": "Salma Idrissi",
+            "email": "employe2@sentinel.ma",
+            "role": "EMPLOYEE",
+            "enabled": true,
+            "createdAt": "2026-11-04T16:49:14.715946Z"
+          },
+          "assignedTo": {
+            "id": 2,
+            "fullName": "Yassine Bennani",
+            "email": "technicien@sentinel.ma",
+            "role": "TECHNICIAN",
+            "enabled": true,
+            "createdAt": "2026-11-04T16:49:14.503694Z"
+          },
+          "history": [],
+          "comments": []
+        },
+        {
+          "id": 6,
+          "title": "Écran externe non détecté",
+          "description": "Incident signalé par Ahmed Benali. Écran externe non détecté. Merci de vérifier la situation et de prendre les mesures nécessaires.",
+          "category": "HARDWARE",
+          "priority": "LOW",
+          "status": "CLOSED",
+          "createdAt": "2026-10-31T16:49:14.879770Z",
+          "updatedAt": "2026-10-31T17:49:14.879770Z",
+          "createdBy": {
+            "id": 3,
+            "fullName": "Ahmed Benali",
+            "email": "employe@sentinel.ma",
+            "role": "EMPLOYEE",
+            "enabled": true,
+            "createdAt": "2026-11-04T16:49:14.608673Z"
+          },
+          "assignedTo": {
+            "id": 2,
+            "fullName": "Yassine Bennani",
+            "email": "technicien@sentinel.ma",
+            "role": "TECHNICIAN",
+            "enabled": true,
+            "createdAt": "2026-11-04T16:49:14.503694Z"
+          },
+          "history": [],
+          "comments": []
+        }
+      ],
+      "assertions": [
+        {
+          "name": "HTTP 200",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "Admin — Tous les utilisateurs",
+      "method": "GET",
+      "url": "api/admin/users",
+      "status": 200,
+      "response": [
+        {
+          "id": 1,
+          "fullName": "Sara El Amrani",
+          "email": "admin@sentinel.ma",
+          "role": "ADMIN",
+          "enabled": true,
+          "createdAt": "2026-11-04T16:49:14.308519Z"
+        },
+        {
+          "id": 2,
+          "fullName": "Yassine Bennani",
+          "email": "technicien@sentinel.ma",
+          "role": "TECHNICIAN",
+          "enabled": true,
+          "createdAt": "2026-11-04T16:49:14.503694Z"
+        },
+        {
+          "id": 3,
+          "fullName": "Ahmed Benali",
+          "email": "employe@sentinel.ma",
+          "role": "EMPLOYEE",
+          "enabled": true,
+          "createdAt": "2026-11-04T16:49:14.608673Z"
+        },
+        {
+          "id": 4,
+          "fullName": "Salma Idrissi",
+          "email": "employe2@sentinel.ma",
+          "role": "EMPLOYEE",
+          "enabled": true,
+          "createdAt": "2026-11-04T16:49:14.715946Z"
+        },
+        {
+          "id": 5,
+          "fullName": "Employé test 1",
+          "email": "postman1.1793811838558@test.ma",
+          "role": "EMPLOYEE",
+          "enabled": true,
+          "createdAt": "2026-11-04T17:03:58.589611Z"
+        },
+        {
+          "id": 6,
+          "fullName": "Employé test 2",
+          "email": "postman2.1793811838746@test.ma",
+          "role": "EMPLOYEE",
+          "enabled": true,
+          "createdAt": "2026-11-04T17:03:58.760443Z"
+        },
+        {
+          "id": 7,
+          "fullName": "Employé test 1",
+          "email": "postman1.1793813713468@test.ma",
+          "role": "EMPLOYEE",
+          "enabled": true,
+          "createdAt": "2026-11-04T17:35:13.506509Z"
+        },
+        {
+          "id": 8,
+          "fullName": "Employé test 2",
+          "email": "postman2.1793813713637@test.ma",
+          "role": "EMPLOYEE",
+          "enabled": true,
+          "createdAt": "2026-11-04T17:35:13.652677Z"
+        }
+      ],
+      "assertions": [
+        {
+          "name": "HTTP 200",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "Admin — Statistiques",
+      "method": "GET",
+      "url": "api/admin/statistics",
+      "status": 200,
+      "response": {
+        "totalUsers": 8,
+        "EMPLOYEE": 6,
+        "TECHNICIAN": 1,
+        "ADMIN": 1,
+        "totalIncidents": 14,
+        "OPEN": 8,
+        "ASSIGNED": 1,
+        "IN_PROGRESS": 1,
+        "RESOLVED": 2,
+        "CLOSED": 2
+      },
+      "assertions": [
+        {
+          "name": "HTTP 200",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "Admin — Affectation",
+      "method": "PUT",
+      "url": "api/incidents/12/assign/2",
+      "status": 200,
+      "response": {
+        "id": 12,
+        "title": "Incident Postman 1",
+        "description": "Incident créé dans le scénario de validation du devoir.",
+        "category": "PHISHING",
+        "priority": "HIGH",
+        "status": "ASSIGNED",
+        "createdAt": "2026-11-04T17:35:13.964001Z",
+        "updatedAt": "2026-11-04T17:35:14.636266744Z",
+        "createdBy": {
+          "id": 7,
+          "fullName": "Employé test 1",
+          "email": "postman1.1793813713468@test.ma",
+          "role": "EMPLOYEE",
+          "enabled": true,
+          "createdAt": "2026-11-04T17:35:13.506509Z"
+        },
+        "assignedTo": {
+          "id": 2,
+          "fullName": "Yassine Bennani",
+          "email": "technicien@sentinel.ma",
+          "role": "TECHNICIAN",
+          "enabled": true,
+          "createdAt": "2026-11-04T16:49:14.503694Z"
+        },
+        "history": [
+          {
+            "id": 32,
+            "message": "Incident créé",
+            "author": {
+              "id": 7,
+              "fullName": "Employé test 1",
+              "email": "postman1.1793813713468@test.ma",
+              "role": "EMPLOYEE",
+              "enabled": true,
+              "createdAt": "2026-11-04T17:35:13.506509Z"
+            },
+            "createdAt": "2026-11-04T17:35:13.964036Z"
+          },
+          {
+            "id": 35,
+            "message": "Affecté à Yassine Bennani",
+            "author": {
+              "id": 1,
+              "fullName": "Sara El Amrani",
+              "email": "admin@sentinel.ma",
+              "role": "ADMIN",
+              "enabled": true,
+              "createdAt": "2026-11-04T16:49:14.308519Z"
+            },
+            "createdAt": "2026-11-04T17:35:14.635147645Z"
+          }
+        ],
+        "comments": []
+      },
+      "assertions": [
+        {
+          "name": "HTTP 200",
+          "passed": true
+        },
+        {
+          "name": "Statut ASSIGNED",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "Technicien — Incidents affectés",
+      "method": "GET",
+      "url": "api/incidents/assigned",
+      "status": 200,
+      "response": [
+        {
+          "id": 12,
+          "title": "Incident Postman 1",
+          "description": "Incident créé dans le scénario de validation du devoir.",
+          "category": "PHISHING",
+          "priority": "HIGH",
+          "status": "ASSIGNED",
+          "createdAt": "2026-11-04T17:35:13.964001Z",
+          "updatedAt": "2026-11-04T17:35:14.636267Z",
+          "createdBy": {
+            "id": 7,
+            "fullName": "Employé test 1",
+            "email": "postman1.1793813713468@test.ma",
+            "role": "EMPLOYEE",
+            "enabled": true,
+            "createdAt": "2026-11-04T17:35:13.506509Z"
+          },
+          "assignedTo": {
+            "id": 2,
+            "fullName": "Yassine Bennani",
+            "email": "technicien@sentinel.ma",
+            "role": "TECHNICIAN",
+            "enabled": true,
+            "createdAt": "2026-11-04T16:49:14.503694Z"
+          },
+          "history": [],
+          "comments": []
+        },
+        {
+          "id": 11,
+          "title": "Connexion VPN indisponible — validation navigateur",
+          "description": "Le VPN ne répond plus depuis ce matin. La connexion Internet fonctionne sur les autres services.",
+          "category": "NETWORK",
+          "priority": "HIGH",
+          "status": "RESOLVED",
+          "createdAt": "2026-11-04T17:10:36.590637Z",
+          "updatedAt": "2026-11-04T17:12:15.486779Z",
+          "createdBy": {
+            "id": 3,
+            "fullName": "Ahmed Benali",
+            "email": "employe@sentinel.ma",
+            "role": "EMPLOYEE",
+            "enabled": true,
+            "createdAt": "2026-11-04T16:49:14.608673Z"
+          },
+          "assignedTo": {
+            "id": 2,
+            "fullName": "Yassine Bennani",
+            "email": "technicien@sentinel.ma",
+            "role": "TECHNICIAN",
+            "enabled": true,
+            "createdAt": "2026-11-04T16:49:14.503694Z"
+          },
+          "history": [],
+          "comments": []
+        },
+        {
+          "id": 8,
+          "title": "Incident Postman 1",
+          "description": "Incident créé dans le scénario de validation du devoir.",
+          "category": "PHISHING",
+          "priority": "HIGH",
+          "status": "CLOSED",
+          "createdAt": "2026-11-04T17:03:59.026534Z",
+          "updatedAt": "2026-11-04T17:03:59.850591Z",
+          "createdBy": {
+            "id": 5,
+            "fullName": "Employé test 1",
+            "email": "postman1.1793811838558@test.ma",
+            "role": "EMPLOYEE",
+            "enabled": true,
+            "createdAt": "2026-11-04T17:03:58.589611Z"
+          },
+          "assignedTo": {
+            "id": 2,
+            "fullName": "Yassine Bennani",
+            "email": "technicien@sentinel.ma",
+            "role": "TECHNICIAN",
+            "enabled": true,
+            "createdAt": "2026-11-04T16:49:14.503694Z"
+          },
+          "history": [],
+          "comments": []
+        },
+        {
+          "id": 4,
+          "title": "Accès à la messagerie bloqué",
+          "description": "Incident signalé par Ahmed Benali. Accès à la messagerie bloqué. Merci de vérifier la situation et de prendre les mesures nécessaires.",
+          "category": "ACCESS",
+          "priority": "HIGH",
+          "status": "ASSIGNED",
+          "createdAt": "2026-11-04T11:49:14.848378Z",
+          "updatedAt": "2026-11-04T11:59:14.848378Z",
+          "createdBy": {
+            "id": 3,
+            "fullName": "Ahmed Benali",
+            "email": "employe@sentinel.ma",
+            "role": "EMPLOYEE",
+            "enabled": true,
+            "createdAt": "2026-11-04T16:49:14.608673Z"
+          },
+          "assignedTo": {
+            "id": 2,
+            "fullName": "Yassine Bennani",
+            "email": "technicien@sentinel.ma",
+            "role": "TECHNICIAN",
+            "enabled": true,
+            "createdAt": "2026-11-04T16:49:14.503694Z"
+          },
+          "history": [],
+          "comments": []
+        },
+        {
+          "id": 2,
+          "title": "Poste de travail infecté par un malware",
+          "description": "Incident signalé par Ahmed Benali. Poste de travail infecté par un malware. Merci de vérifier la situation et de prendre les mesures nécessaires.",
+          "category": "MALWARE",
+          "priority": "CRITICAL",
+          "status": "IN_PROGRESS",
+          "createdAt": "2026-11-02T16:49:14.834384Z",
+          "updatedAt": "2026-11-02T17:19:14.834384Z",
+          "createdBy": {
+            "id": 3,
+            "fullName": "Ahmed Benali",
+            "email": "employe@sentinel.ma",
+            "role": "EMPLOYEE",
+            "enabled": true,
+            "createdAt": "2026-11-04T16:49:14.608673Z"
+          },
+          "assignedTo": {
+            "id": 2,
+            "fullName": "Yassine Bennani",
+            "email": "technicien@sentinel.ma",
+            "role": "TECHNICIAN",
+            "enabled": true,
+            "createdAt": "2026-11-04T16:49:14.503694Z"
+          },
+          "history": [],
+          "comments": []
+        },
+        {
+          "id": 5,
+          "title": "Mise à jour du logiciel de comptabilité",
+          "description": "Incident signalé par Salma Idrissi. Mise à jour du logiciel de comptabilité. Merci de vérifier la situation et de prendre les mesures nécessaires.",
+          "category": "SOFTWARE",
+          "priority": "LOW",
+          "status": "RESOLVED",
+          "createdAt": "2026-11-01T16:49:14.853832Z",
+          "updatedAt": "2026-11-01T17:29:14.853832Z",
+          "createdBy": {
+            "id": 4,
+            "fullName": "Salma Idrissi",
+            "email": "employe2@sentinel.ma",
+            "role": "EMPLOYEE",
+            "enabled": true,
+            "createdAt": "2026-11-04T16:49:14.715946Z"
+          },
+          "assignedTo": {
+            "id": 2,
+            "fullName": "Yassine Bennani",
+            "email": "technicien@sentinel.ma",
+            "role": "TECHNICIAN",
+            "enabled": true,
+            "createdAt": "2026-11-04T16:49:14.503694Z"
+          },
+          "history": [],
+          "comments": []
+        },
+        {
+          "id": 6,
+          "title": "Écran externe non détecté",
+          "description": "Incident signalé par Ahmed Benali. Écran externe non détecté. Merci de vérifier la situation et de prendre les mesures nécessaires.",
+          "category": "HARDWARE",
+          "priority": "LOW",
+          "status": "CLOSED",
+          "createdAt": "2026-10-31T16:49:14.879770Z",
+          "updatedAt": "2026-10-31T17:49:14.879770Z",
+          "createdBy": {
+            "id": 3,
+            "fullName": "Ahmed Benali",
+            "email": "employe@sentinel.ma",
+            "role": "EMPLOYEE",
+            "enabled": true,
+            "createdAt": "2026-11-04T16:49:14.608673Z"
+          },
+          "assignedTo": {
+            "id": 2,
+            "fullName": "Yassine Bennani",
+            "email": "technicien@sentinel.ma",
+            "role": "TECHNICIAN",
+            "enabled": true,
+            "createdAt": "2026-11-04T16:49:14.503694Z"
+          },
+          "history": [],
+          "comments": []
+        }
+      ],
+      "assertions": [
+        {
+          "name": "HTTP 200",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "Technicien — Démarrage traitement",
+      "method": "PUT",
+      "url": "api/incidents/12/status",
+      "status": 200,
+      "response": {
+        "id": 12,
+        "title": "Incident Postman 1",
+        "description": "Incident créé dans le scénario de validation du devoir.",
+        "category": "PHISHING",
+        "priority": "HIGH",
+        "status": "IN_PROGRESS",
+        "createdAt": "2026-11-04T17:35:13.964001Z",
+        "updatedAt": "2026-11-04T17:35:14.743023145Z",
+        "createdBy": {
+          "id": 7,
+          "fullName": "Employé test 1",
+          "email": "postman1.1793813713468@test.ma",
+          "role": "EMPLOYEE",
+          "enabled": true,
+          "createdAt": "2026-11-04T17:35:13.506509Z"
+        },
+        "assignedTo": {
+          "id": 2,
+          "fullName": "Yassine Bennani",
+          "email": "technicien@sentinel.ma",
+          "role": "TECHNICIAN",
+          "enabled": true,
+          "createdAt": "2026-11-04T16:49:14.503694Z"
+        },
+        "history": [
+          {
+            "id": 32,
+            "message": "Incident créé",
+            "author": {
+              "id": 7,
+              "fullName": "Employé test 1",
+              "email": "postman1.1793813713468@test.ma",
+              "role": "EMPLOYEE",
+              "enabled": true,
+              "createdAt": "2026-11-04T17:35:13.506509Z"
+            },
+            "createdAt": "2026-11-04T17:35:13.964036Z"
+          },
+          {
+            "id": 35,
+            "message": "Affecté à Yassine Bennani",
+            "author": {
+              "id": 1,
+              "fullName": "Sara El Amrani",
+              "email": "admin@sentinel.ma",
+              "role": "ADMIN",
+              "enabled": true,
+              "createdAt": "2026-11-04T16:49:14.308519Z"
+            },
+            "createdAt": "2026-11-04T17:35:14.635148Z"
+          },
+          {
+            "id": 36,
+            "message": "ASSIGNED → IN_PROGRESS",
+            "author": {
+              "id": 2,
+              "fullName": "Yassine Bennani",
+              "email": "technicien@sentinel.ma",
+              "role": "TECHNICIAN",
+              "enabled": true,
+              "createdAt": "2026-11-04T16:49:14.503694Z"
+            },
+            "createdAt": "2026-11-04T17:35:14.743006620Z"
+          }
+        ],
+        "comments": []
+      },
+      "assertions": [
+        {
+          "name": "HTTP 200",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "Technicien — Note de traitement",
+      "method": "POST",
+      "url": "api/incidents/12/comments",
+      "status": 201,
+      "response": {
+        "id": 12,
+        "title": "Incident Postman 1",
+        "description": "Incident créé dans le scénario de validation du devoir.",
+        "category": "PHISHING",
+        "priority": "HIGH",
+        "status": "IN_PROGRESS",
+        "createdAt": "2026-11-04T17:35:13.964001Z",
+        "updatedAt": "2026-11-04T17:35:14.790573386Z",
+        "createdBy": {
+          "id": 7,
+          "fullName": "Employé test 1",
+          "email": "postman1.1793813713468@test.ma",
+          "role": "EMPLOYEE",
+          "enabled": true,
+          "createdAt": "2026-11-04T17:35:13.506509Z"
+        },
+        "assignedTo": {
+          "id": 2,
+          "fullName": "Yassine Bennani",
+          "email": "technicien@sentinel.ma",
+          "role": "TECHNICIAN",
+          "enabled": true,
+          "createdAt": "2026-11-04T16:49:14.503694Z"
+        },
+        "history": [
+          {
+            "id": 32,
+            "message": "Incident créé",
+            "author": {
+              "id": 7,
+              "fullName": "Employé test 1",
+              "email": "postman1.1793813713468@test.ma",
+              "role": "EMPLOYEE",
+              "enabled": true,
+              "createdAt": "2026-11-04T17:35:13.506509Z"
+            },
+            "createdAt": "2026-11-04T17:35:13.964036Z"
+          },
+          {
+            "id": 35,
+            "message": "Affecté à Yassine Bennani",
+            "author": {
+              "id": 1,
+              "fullName": "Sara El Amrani",
+              "email": "admin@sentinel.ma",
+              "role": "ADMIN",
+              "enabled": true,
+              "createdAt": "2026-11-04T16:49:14.308519Z"
+            },
+            "createdAt": "2026-11-04T17:35:14.635148Z"
+          },
+          {
+            "id": 36,
+            "message": "ASSIGNED → IN_PROGRESS",
+            "author": {
+              "id": 2,
+              "fullName": "Yassine Bennani",
+              "email": "technicien@sentinel.ma",
+              "role": "TECHNICIAN",
+              "enabled": true,
+              "createdAt": "2026-11-04T16:49:14.503694Z"
+            },
+            "createdAt": "2026-11-04T17:35:14.743007Z"
+          },
+          {
+            "id": 37,
+            "message": "Note de traitement ajoutée",
+            "author": {
+              "id": 2,
+              "fullName": "Yassine Bennani",
+              "email": "technicien@sentinel.ma",
+              "role": "TECHNICIAN",
+              "enabled": true,
+              "createdAt": "2026-11-04T16:49:14.503694Z"
+            },
+            "createdAt": "2026-11-04T17:35:14.790566846Z"
+          }
+        ],
+        "comments": [
+          {
+            "id": 4,
+            "content": "Le poste a été isolé du réseau. Analyse antivirus effectuée.",
+            "author": {
+              "id": 2,
+              "fullName": "Yassine Bennani",
+              "email": "technicien@sentinel.ma",
+              "role": "TECHNICIAN",
+              "enabled": true,
+              "createdAt": "2026-11-04T16:49:14.503694Z"
+            },
+            "createdAt": "2026-11-04T17:35:14.790514770Z"
+          }
+        ]
+      },
+      "assertions": [
+        {
+          "name": "HTTP 201",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "Technicien — Résolution",
+      "method": "PUT",
+      "url": "api/incidents/12/status",
+      "status": 200,
+      "response": {
+        "id": 12,
+        "title": "Incident Postman 1",
+        "description": "Incident créé dans le scénario de validation du devoir.",
+        "category": "PHISHING",
+        "priority": "HIGH",
+        "status": "RESOLVED",
+        "createdAt": "2026-11-04T17:35:13.964001Z",
+        "updatedAt": "2026-11-04T17:35:14.842484437Z",
+        "createdBy": {
+          "id": 7,
+          "fullName": "Employé test 1",
+          "email": "postman1.1793813713468@test.ma",
+          "role": "EMPLOYEE",
+          "enabled": true,
+          "createdAt": "2026-11-04T17:35:13.506509Z"
+        },
+        "assignedTo": {
+          "id": 2,
+          "fullName": "Yassine Bennani",
+          "email": "technicien@sentinel.ma",
+          "role": "TECHNICIAN",
+          "enabled": true,
+          "createdAt": "2026-11-04T16:49:14.503694Z"
+        },
+        "history": [
+          {
+            "id": 32,
+            "message": "Incident créé",
+            "author": {
+              "id": 7,
+              "fullName": "Employé test 1",
+              "email": "postman1.1793813713468@test.ma",
+              "role": "EMPLOYEE",
+              "enabled": true,
+              "createdAt": "2026-11-04T17:35:13.506509Z"
+            },
+            "createdAt": "2026-11-04T17:35:13.964036Z"
+          },
+          {
+            "id": 35,
+            "message": "Affecté à Yassine Bennani",
+            "author": {
+              "id": 1,
+              "fullName": "Sara El Amrani",
+              "email": "admin@sentinel.ma",
+              "role": "ADMIN",
+              "enabled": true,
+              "createdAt": "2026-11-04T16:49:14.308519Z"
+            },
+            "createdAt": "2026-11-04T17:35:14.635148Z"
+          },
+          {
+            "id": 36,
+            "message": "ASSIGNED → IN_PROGRESS",
+            "author": {
+              "id": 2,
+              "fullName": "Yassine Bennani",
+              "email": "technicien@sentinel.ma",
+              "role": "TECHNICIAN",
+              "enabled": true,
+              "createdAt": "2026-11-04T16:49:14.503694Z"
+            },
+            "createdAt": "2026-11-04T17:35:14.743007Z"
+          },
+          {
+            "id": 37,
+            "message": "Note de traitement ajoutée",
+            "author": {
+              "id": 2,
+              "fullName": "Yassine Bennani",
+              "email": "technicien@sentinel.ma",
+              "role": "TECHNICIAN",
+              "enabled": true,
+              "createdAt": "2026-11-04T16:49:14.503694Z"
+            },
+            "createdAt": "2026-11-04T17:35:14.790567Z"
+          },
+          {
+            "id": 38,
+            "message": "IN_PROGRESS → RESOLVED",
+            "author": {
+              "id": 2,
+              "fullName": "Yassine Bennani",
+              "email": "technicien@sentinel.ma",
+              "role": "TECHNICIAN",
+              "enabled": true,
+              "createdAt": "2026-11-04T16:49:14.503694Z"
+            },
+            "createdAt": "2026-11-04T17:35:14.842466130Z"
+          }
+        ],
+        "comments": [
+          {
+            "id": 4,
+            "content": "Le poste a été isolé du réseau. Analyse antivirus effectuée.",
+            "author": {
+              "id": 2,
+              "fullName": "Yassine Bennani",
+              "email": "technicien@sentinel.ma",
+              "role": "TECHNICIAN",
+              "enabled": true,
+              "createdAt": "2026-11-04T16:49:14.503694Z"
+            },
+            "createdAt": "2026-11-04T17:35:14.790515Z"
+          }
+        ]
+      },
+      "assertions": [
+        {
+          "name": "HTTP 200",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "Employé — Vérification statut et historique",
+      "method": "GET",
+      "url": "api/incidents/12",
+      "status": 200,
+      "response": {
+        "id": 12,
+        "title": "Incident Postman 1",
+        "description": "Incident créé dans le scénario de validation du devoir.",
+        "category": "PHISHING",
+        "priority": "HIGH",
+        "status": "RESOLVED",
+        "createdAt": "2026-11-04T17:35:13.964001Z",
+        "updatedAt": "2026-11-04T17:35:14.842484Z",
+        "createdBy": {
+          "id": 7,
+          "fullName": "Employé test 1",
+          "email": "postman1.1793813713468@test.ma",
+          "role": "EMPLOYEE",
+          "enabled": true,
+          "createdAt": "2026-11-04T17:35:13.506509Z"
+        },
+        "assignedTo": {
+          "id": 2,
+          "fullName": "Yassine Bennani",
+          "email": "technicien@sentinel.ma",
+          "role": "TECHNICIAN",
+          "enabled": true,
+          "createdAt": "2026-11-04T16:49:14.503694Z"
+        },
+        "history": [
+          {
+            "id": 32,
+            "message": "Incident créé",
+            "author": {
+              "id": 7,
+              "fullName": "Employé test 1",
+              "email": "postman1.1793813713468@test.ma",
+              "role": "EMPLOYEE",
+              "enabled": true,
+              "createdAt": "2026-11-04T17:35:13.506509Z"
+            },
+            "createdAt": "2026-11-04T17:35:13.964036Z"
+          },
+          {
+            "id": 35,
+            "message": "Affecté à Yassine Bennani",
+            "author": {
+              "id": 1,
+              "fullName": "Sara El Amrani",
+              "email": "admin@sentinel.ma",
+              "role": "ADMIN",
+              "enabled": true,
+              "createdAt": "2026-11-04T16:49:14.308519Z"
+            },
+            "createdAt": "2026-11-04T17:35:14.635148Z"
+          },
+          {
+            "id": 36,
+            "message": "ASSIGNED → IN_PROGRESS",
+            "author": {
+              "id": 2,
+              "fullName": "Yassine Bennani",
+              "email": "technicien@sentinel.ma",
+              "role": "TECHNICIAN",
+              "enabled": true,
+              "createdAt": "2026-11-04T16:49:14.503694Z"
+            },
+            "createdAt": "2026-11-04T17:35:14.743007Z"
+          },
+          {
+            "id": 37,
+            "message": "Note de traitement ajoutée",
+            "author": {
+              "id": 2,
+              "fullName": "Yassine Bennani",
+              "email": "technicien@sentinel.ma",
+              "role": "TECHNICIAN",
+              "enabled": true,
+              "createdAt": "2026-11-04T16:49:14.503694Z"
+            },
+            "createdAt": "2026-11-04T17:35:14.790567Z"
+          },
+          {
+            "id": 38,
+            "message": "IN_PROGRESS → RESOLVED",
+            "author": {
+              "id": 2,
+              "fullName": "Yassine Bennani",
+              "email": "technicien@sentinel.ma",
+              "role": "TECHNICIAN",
+              "enabled": true,
+              "createdAt": "2026-11-04T16:49:14.503694Z"
+            },
+            "createdAt": "2026-11-04T17:35:14.842466Z"
+          }
+        ],
+        "comments": [
+          {
+            "id": 4,
+            "content": "Le poste a été isolé du réseau. Analyse antivirus effectuée.",
+            "author": {
+              "id": 2,
+              "fullName": "Yassine Bennani",
+              "email": "technicien@sentinel.ma",
+              "role": "TECHNICIAN",
+              "enabled": true,
+              "createdAt": "2026-11-04T16:49:14.503694Z"
+            },
+            "createdAt": "2026-11-04T17:35:14.790515Z"
+          }
+        ]
+      },
+      "assertions": [
+        {
+          "name": "HTTP 200",
+          "passed": true
+        },
+        {
+          "name": "Incident résolu avec historique et note",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "Admin — Clôture",
+      "method": "PUT",
+      "url": "api/incidents/12/status",
+      "status": 200,
+      "response": {
+        "id": 12,
+        "title": "Incident Postman 1",
+        "description": "Incident créé dans le scénario de validation du devoir.",
+        "category": "PHISHING",
+        "priority": "HIGH",
+        "status": "CLOSED",
+        "createdAt": "2026-11-04T17:35:13.964001Z",
+        "updatedAt": "2026-11-04T17:35:14.934868729Z",
+        "createdBy": {
+          "id": 7,
+          "fullName": "Employé test 1",
+          "email": "postman1.1793813713468@test.ma",
+          "role": "EMPLOYEE",
+          "enabled": true,
+          "createdAt": "2026-11-04T17:35:13.506509Z"
+        },
+        "assignedTo": {
+          "id": 2,
+          "fullName": "Yassine Bennani",
+          "email": "technicien@sentinel.ma",
+          "role": "TECHNICIAN",
+          "enabled": true,
+          "createdAt": "2026-11-04T16:49:14.503694Z"
+        },
+        "history": [
+          {
+            "id": 32,
+            "message": "Incident créé",
+            "author": {
+              "id": 7,
+              "fullName": "Employé test 1",
+              "email": "postman1.1793813713468@test.ma",
+              "role": "EMPLOYEE",
+              "enabled": true,
+              "createdAt": "2026-11-04T17:35:13.506509Z"
+            },
+            "createdAt": "2026-11-04T17:35:13.964036Z"
+          },
+          {
+            "id": 35,
+            "message": "Affecté à Yassine Bennani",
+            "author": {
+              "id": 1,
+              "fullName": "Sara El Amrani",
+              "email": "admin@sentinel.ma",
+              "role": "ADMIN",
+              "enabled": true,
+              "createdAt": "2026-11-04T16:49:14.308519Z"
+            },
+            "createdAt": "2026-11-04T17:35:14.635148Z"
+          },
+          {
+            "id": 36,
+            "message": "ASSIGNED → IN_PROGRESS",
+            "author": {
+              "id": 2,
+              "fullName": "Yassine Bennani",
+              "email": "technicien@sentinel.ma",
+              "role": "TECHNICIAN",
+              "enabled": true,
+              "createdAt": "2026-11-04T16:49:14.503694Z"
+            },
+            "createdAt": "2026-11-04T17:35:14.743007Z"
+          },
+          {
+            "id": 37,
+            "message": "Note de traitement ajoutée",
+            "author": {
+              "id": 2,
+              "fullName": "Yassine Bennani",
+              "email": "technicien@sentinel.ma",
+              "role": "TECHNICIAN",
+              "enabled": true,
+              "createdAt": "2026-11-04T16:49:14.503694Z"
+            },
+            "createdAt": "2026-11-04T17:35:14.790567Z"
+          },
+          {
+            "id": 38,
+            "message": "IN_PROGRESS → RESOLVED",
+            "author": {
+              "id": 2,
+              "fullName": "Yassine Bennani",
+              "email": "technicien@sentinel.ma",
+              "role": "TECHNICIAN",
+              "enabled": true,
+              "createdAt": "2026-11-04T16:49:14.503694Z"
+            },
+            "createdAt": "2026-11-04T17:35:14.842466Z"
+          },
+          {
+            "id": 39,
+            "message": "RESOLVED → CLOSED",
+            "author": {
+              "id": 1,
+              "fullName": "Sara El Amrani",
+              "email": "admin@sentinel.ma",
+              "role": "ADMIN",
+              "enabled": true,
+              "createdAt": "2026-11-04T16:49:14.308519Z"
+            },
+            "createdAt": "2026-11-04T17:35:14.934850761Z"
+          }
+        ],
+        "comments": [
+          {
+            "id": 4,
+            "content": "Le poste a été isolé du réseau. Analyse antivirus effectuée.",
+            "author": {
+              "id": 2,
+              "fullName": "Yassine Bennani",
+              "email": "technicien@sentinel.ma",
+              "role": "TECHNICIAN",
+              "enabled": true,
+              "createdAt": "2026-11-04T16:49:14.503694Z"
+            },
+            "createdAt": "2026-11-04T17:35:14.790515Z"
+          }
+        ]
+      },
+      "assertions": [
+        {
+          "name": "HTTP 200",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "Sécurité — Incident clôturé immuable",
+      "method": "PUT",
+      "url": "api/incidents/12/status",
+      "status": 409,
+      "response": {
+        "status": 409,
+        "message": "Un incident clôturé ne peut plus être modifié",
+        "errors": {}
+      },
+      "assertions": [
+        {
+          "name": "HTTP 409",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "Admin — Désactiver employé 2",
+      "method": "PUT",
+      "url": "api/admin/users/8/disable",
+      "status": 200,
+      "response": {
+        "id": 8,
+        "fullName": "Employé test 2",
+        "email": "postman2.1793813713637@test.ma",
+        "role": "EMPLOYEE",
+        "enabled": false,
+        "createdAt": "2026-11-04T17:35:13.652677Z"
+      },
+      "assertions": [
+        {
+          "name": "HTTP 200",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "SEC 7 — Compte désactivé à la connexion",
+      "method": "POST",
+      "url": "auth/login",
+      "status": 401,
+      "response": {
+        "status": 401,
+        "message": "Email ou mot de passe incorrect, ou compte désactivé",
+        "errors": {}
+      },
+      "assertions": [
+        {
+          "name": "HTTP 401",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "Sécurité — JWT du compte désactivé",
+      "method": "GET",
+      "url": "api/profile",
+      "status": 401,
+      "response": {
+        "status": 401,
+        "message": "Session absente, invalide ou expirée",
+        "errors": {}
+      },
+      "assertions": [
+        {
+          "name": "HTTP 401",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "Admin — Réactiver employé 2",
+      "method": "PUT",
+      "url": "api/admin/users/8/enable",
+      "status": 200,
+      "response": {
+        "id": 8,
+        "fullName": "Employé test 2",
+        "email": "postman2.1793813713637@test.ma",
+        "role": "EMPLOYEE",
+        "enabled": true,
+        "createdAt": "2026-11-04T17:35:13.652677Z"
+      },
+      "assertions": [
+        {
+          "name": "HTTP 200",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "Refresh — Connexion employé 1",
+      "method": "POST",
+      "url": "auth/login",
+      "status": 200,
+      "response": {
+        "token": "[masqué]",
+        "refreshToken": "[masqué]",
+        "expiresAt": "2026-11-04T17:40:15.201646769Z",
+        "role": "EMPLOYEE",
+        "fullName": "Employé test 1",
+        "user": {
+          "id": 7,
+          "fullName": "Employé test 1",
+          "email": "postman1.1793813713468@test.ma",
+          "role": "EMPLOYEE",
+          "enabled": true,
+          "createdAt": "2026-11-04T17:35:13.506509Z"
+        }
+      },
+      "assertions": [
+        {
+          "name": "HTTP 200",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "Refresh — Rotation du jeton",
+      "method": "POST",
+      "url": "auth/refresh",
+      "status": 200,
+      "response": {
+        "token": "[masqué]",
+        "refreshToken": "[masqué]",
+        "expiresAt": "2026-11-04T17:40:15.238214994Z",
+        "role": "EMPLOYEE",
+        "fullName": "Employé test 1",
+        "user": {
+          "id": 7,
+          "fullName": "Employé test 1",
+          "email": "postman1.1793813713468@test.ma",
+          "role": "EMPLOYEE",
+          "enabled": true,
+          "createdAt": "2026-11-04T17:35:13.506509Z"
+        }
+      },
+      "assertions": [
+        {
+          "name": "HTTP 200",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "Refresh — Ancien jeton refusé",
+      "method": "POST",
+      "url": "auth/refresh",
+      "status": 401,
+      "response": {
+        "status": 401,
+        "message": "Refresh token expiré ou révoqué",
+        "errors": {}
+      },
+      "assertions": [
+        {
+          "name": "HTTP 401",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "Déconnexion",
+      "method": "POST",
+      "url": "api/logout",
+      "status": 200,
+      "response": {
+        "message": "Déconnexion effectuée"
+      },
+      "assertions": [
+        {
+          "name": "HTTP 200",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "Sécurité — JWT révoqué après déconnexion",
+      "method": "GET",
+      "url": "api/profile",
+      "status": 401,
+      "response": {
+        "status": 401,
+        "message": "Session absente, invalide ou expirée",
+        "errors": {}
+      },
+      "assertions": [
+        {
+          "name": "HTTP 401",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "Sécurité — Refresh révoqué après déconnexion",
+      "method": "POST",
+      "url": "auth/refresh",
+      "status": 401,
+      "response": {
+        "status": 401,
+        "message": "Refresh token expiré ou révoqué",
+        "errors": {}
+      },
+      "assertions": [
+        {
+          "name": "HTTP 401",
+          "passed": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+node_modules/
+frontend/dist/
+backend/target/
+backend/data/
+.env
+.env.local
+.env.*.local
+*.log
+.playwright-cli/

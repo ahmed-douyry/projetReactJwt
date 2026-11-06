@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: org.example.backend.integration.BackendApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 23.95 s -- in org.example.backend.integration.BackendApplicationTests

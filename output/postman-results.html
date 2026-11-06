@@ -1,0 +1,42 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><title>Sentinel — Résultats collection Postman</title><style>*{box-sizing:border-box}body{margin:0;background:#f5f7f1;font:13px Arial,sans-serif;color:#284531}main{max-width:1100px;margin:auto;padding:45px}header{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:25px}.brand{font-size:13px;font-weight:bold;color:#62834a;letter-spacing:2px}h1{font-size:29px;margin:12px 0}p{font-size:12px;color:#7d8c70}.stats{display:flex;gap:15px;margin-bottom:24px}.stats>div{border:1px solid #dce5d2;background:white;border-radius:8px;flex:1;padding:18px}.stats strong{display:block;font-size:28px;margin-top:8px}.stats span{font-size:11px;color:#7a8b6e}.grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}article{border:1px solid #dce5d2;background:#fff;border-radius:7px;padding:16px;min-width:0}.row{display:flex;gap:8px;align-items:center;font-size:11px}.row b{margin-left:auto;color:#5e8048;background:#edf4e7;padding:6px;border-radius:4px}.pass{color:#669345}.request{font-family:monospace;font-size:10px;color:#7a8c6e;margin-top:13px;overflow-wrap:anywhere}pre{white-space:pre-wrap;font-size:10px;background:#f6f8f2;padding:12px;margin-bottom:0;line-height:1.7;overflow-wrap:anywhere}footer{font-size:10px;margin-top:20px;color:#859678}</style></head><body><main><header><div><span class="brand">SENTINEL · VÉRIFICATION API</span><h1>Les neuf tests de sécurité.</h1><p>Résultats réels de la collection Postman exécutée avec Newman · 4 novembre 2026</p></div><span>✓ Exécution terminée</span></header><section class="stats"><div><span>Requêtes exécutées</span><strong>36</strong></div><div><span>Assertions réussies</span><strong>40</strong></div><div><span>Échecs</span><strong>0</strong></div></section><section class="grid"><article><div class="row"><span class="pass">✓</span><strong>SEC 1 — API sans JWT</strong><b>401</b></div><div class="request">GET api/profile</div><pre>{
+  &quot;status&quot;: 401,
+  &quot;message&quot;: &quot;Session absente, invalide ou expirée&quot;,
+  &quot;errors&quot;: {}
+}</pre></article><article><div class="row"><span class="pass">✓</span><strong>SEC 2 — JWT invalide</strong><b>401</b></div><div class="request">GET api/profile</div><pre>{
+  &quot;status&quot;: 401,
+  &quot;message&quot;: &quot;Session absente, invalide ou expirée&quot;,
+  &quot;errors&quot;: {}
+}</pre></article><article><div class="row"><span class="pass">✓</span><strong>SEC 3 — JWT signé mais expiré</strong><b>401</b></div><div class="request">GET api/profile</div><pre>{
+  &quot;status&quot;: 401,
+  &quot;message&quot;: &quot;Session absente, invalide ou expirée&quot;,
+  &quot;errors&quot;: {}
+}</pre></article><article><div class="row"><span class="pass">✓</span><strong>SEC 4 — Employé sur route ADMIN</strong><b>403</b></div><div class="request">GET api/admin/users</div><pre>{
+  &quot;status&quot;: 403,
+  &quot;message&quot;: &quot;Accès interdit&quot;,
+  &quot;errors&quot;: {}
+}</pre></article><article><div class="row"><span class="pass">✓</span><strong>SEC 5 — Lecture incident autre propriétaire</strong><b>403</b></div><div class="request">GET api/incidents/14</div><pre>{
+  &quot;status&quot;: 403,
+  &quot;message&quot;: &quot;Cet incident ne vous est pas accessible&quot;,
+  &quot;errors&quot;: {}
+}</pre></article><article><div class="row"><span class="pass">✓</span><strong>SEC 6 — Technicien sur incident non affecté</strong><b>403</b></div><div class="request">PUT api/incidents/14/status</div><pre>{
+  &quot;status&quot;: 403,
+  &quot;message&quot;: &quot;Cet incident ne vous est pas accessible&quot;,
+  &quot;errors&quot;: {}
+}</pre></article><article><div class="row"><span class="pass">✓</span><strong>SEC 8 — Email déjà existant</strong><b>409</b></div><div class="request">POST auth/register</div><pre>{
+  &quot;status&quot;: 409,
+  &quot;message&quot;: &quot;Cet email est déjà utilisé&quot;,
+  &quot;errors&quot;: {}
+}</pre></article><article><div class="row"><span class="pass">✓</span><strong>SEC 9 — Incident invalide</strong><b>400</b></div><div class="request">POST api/incidents</div><pre>{
+  &quot;status&quot;: 400,
+  &quot;message&quot;: &quot;Données invalides&quot;,
+  &quot;errors&quot;: {
+    &quot;description&quot;: &quot;must not be blank&quot;,
+    &quot;priority&quot;: &quot;must not be null&quot;,
+    &quot;title&quot;: &quot;must not be blank&quot;,
+    &quot;category&quot;: &quot;must not be null&quot;
+  }
+}</pre></article><article><div class="row"><span class="pass">✓</span><strong>SEC 7 — Compte désactivé à la connexion</strong><b>401</b></div><div class="request">POST auth/login</div><pre>{
+  &quot;status&quot;: 401,
+  &quot;message&quot;: &quot;Email ou mot de passe incorrect, ou compte désactivé&quot;,
+  &quot;errors&quot;: {}
+}</pre></article></section><footer>Cette vue présente l’exécution HTTP et ne représente pas l’interface Postman. Réponses authentiques ; jetons et mots de passe masqués dans l’export.</footer></main></body></html>
